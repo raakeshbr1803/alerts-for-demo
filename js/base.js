@@ -49,6 +49,9 @@ function makeRequest(int, data) {
   var options = {
     "async": true,
     "crossDomain": true,
+    "dataType": 'json',
+    "cors": true,
+    "secure": true,
     "url": int.endpoint,
     "method": "POST",
     "headers": {
