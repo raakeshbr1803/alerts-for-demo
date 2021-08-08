@@ -5,6 +5,7 @@ $(document).ready(function () {
     success: function (csvd) {
       $.getScript("https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.8.3/jquery.csv.min.js",function(){
         csvData = $.csv.toArrays(csvd);
+        console.log("debug");
         console.log(csvData);
         localStorage.setItem("data",JSON.stringify(csvData));
       });
