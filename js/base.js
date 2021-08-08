@@ -46,16 +46,18 @@ function makeRequest(int, data) {
     return;
   }
   var options = {
-    async: true,
-    crossDomain: true,
-    dataType: "jsonp",
-    url: int.endpoint,
-    method: "POST",
-    headers: {
-      Authorization: int.auth,
+    "async": true,
+    "crossDomain": true,
+    "url": int.endpoint,
+    "method": "POST",
+    "headers": {
+      "Authorization": int.auth,
+      "Content-Type": "application/json",
+      "cache-control": "no-cache",
+
     },
-    processData: false,
-    data: generateAlertPayload(data)
+    "processData": false,
+    "data": generateAlertPayload(data)
   }
   console.log(options);
   $.ajax(options);
