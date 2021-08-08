@@ -1,6 +1,6 @@
 $(document).ready(function () {
   $.ajax({
-    url: "/images/custom-int-noc.csv",
+    url: "./images/custom-int-noc.csv",
     async: true,
     success: function (csvd) {
       $.getScript("https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.8.3/jquery.csv.min.js",function(){
