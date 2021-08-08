@@ -55,8 +55,6 @@ function makeRequest(int, data) {
       "Authorization": int.auth,
       "Content-Type": "application/json",
       "cache-control": "no-cache",
-      "Access-Control-Allow-Origin": "http://e9a58d1e17bd.ngrok.io",
-      "Access-Control-Allow-Methods": "*"
     },
     "processData": false,
     "data": generateAlertPayload(data)
