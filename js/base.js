@@ -48,16 +48,12 @@ function makeRequest(int, data) {
   var options = {
     "async": true,
     "crossDomain": true,
-    "dataType": 'json',
-    "cors": true,
-    "secure": true,
     "url": int.endpoint,
     "method": "POST",
     "headers": {
       "Authorization": int.auth,
       "Content-Type": "application/json",
       "cache-control": "no-cache",
-      "Access-Control-Allow-Origin": "*"
     },
     "processData": false,
     "data": generateAlertPayload(data)
