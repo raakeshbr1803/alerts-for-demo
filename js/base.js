@@ -48,7 +48,7 @@ function makeRequest(int, data) {
   var options = {
     async: true,
     crossDomain: true,
-    dataType: "json",
+    dataType: "jsonp",
     url: int.endpoint,
     method: "POST",
     headers: {
