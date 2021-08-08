@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Alerts for Demo Account</title>
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.8.3/jquery.csv.min.js"></script>
+  <script src="js/base.js"></script>
+  
+  
+	Font
+	<link rel="stylesheet" type="text/css" href="css/opensans-font.css">
+	<!-- Jquery -->
+	<link rel="stylesheet" href="https://jqueryvalidation.org/files/demo/site-demos.css">
+	<!-- Main Style Css -->
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+
+
+<body class="form-v4">
+	<div class="page-content">
+		<div class="form-v4-content">
+			<div class="form-left">
+				<h3>How to use this service?</h3>
+        <p>1. Go to Freshservice -> Admin -> Alert Profiles</p>
+        <p>2. Create an Alert Profile and Custom Integration with the help of this <a href="https://support.freshservice.com/support/solutions/articles/50000002707-track-and-manage-alerts-using-alert-profiles" target="_blank" class="sol-article">solution article</a></p>
+        <p>3. In the Custom Integration created, copy the <i><b>Endpoint URL</b></i> and <i><b>Auth header</b></i> under <i><b>Authorize Integration</b></i> section</p>
+        <p>4. Paste the copied information to this form and <i><b>Send Alerts</b></i></p>
+        <p>5. This will take 2-3 minutes to create alerts in the demo account</p>
+        <p>6. Number of alerts being generated will be around 150-200 along with some alerts events</p>
+			</div>
+			<form class="form-detail" action="#" method="post" id="alert-form">
+
+				<h2>Alerts for Demo Account</h2>
+				<div class="fieldset">
+        	<label for="hostname">Endpoint URL</label>
+        	<input type="text" id="endpoint" name="endpoint" autocomplete="on" class="input-text" />
+      	</div>
+      	<div class="fieldset">
+        	<label for="resource">Auth Header</label>
+        	<input type="text" id="auth" name="auth"autocomplete="on" class="input-text auth-header" />
+      	</div>
+				
+				<div class="form-row-last">
+					<input type="submit" name="register" class="register" id="send" value="Send Alerts">
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+	<script>
+		jQuery.validator.setDefaults({
+		  	debug: true,
+		  	success:  function(label){
+        		label.attr('id', 'valid');
+   		 	},
+		});
+		$( "#alert-form" ).validate({
+		  	rules: {
+			    endpoint: "required",
+		    	auth: "required"
+		  	},
+		  	messages: {
+		  		endpoint: {
+		  			required: "Please enter Endpoint URL"
+		  		},
+		  		auth: {
+		  			required: "Please enter Auth Header"
+		  		}
+		  	}
+		});
+	</script>
+</body>
+</html>
