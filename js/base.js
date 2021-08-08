@@ -55,6 +55,7 @@ function makeRequest(int, data) {
       "Authorization": int.auth,
       "Content-Type": "application/json",
       "cache-control": "no-cache",
+      "Access-Control-Allow-Origin": "*"
     },
     "processData": false,
     "data": generateAlertPayload(data)
