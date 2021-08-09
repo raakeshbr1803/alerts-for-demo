@@ -47,7 +47,6 @@ function makeRequest(int, data) {
   }
   var options = {
     "async": true,
-    "crossDomain": true,
     "url": int.endpoint,
     "method": "POST",
     "headers": {
