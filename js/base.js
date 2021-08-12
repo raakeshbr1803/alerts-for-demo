@@ -75,7 +75,7 @@ async function pushAlerts() {
     }
 
     var url = integration.endpoint+"?auth-key="+authkey;
-    $('#status').removeClass().addClass("status-wait").text("Please wait.. This might take 2-3 minutes. Don't close the tab!");
+    $('#status').removeClass().addClass("status-wait").text("Please wait.. This might take 2-3 minutes. Don't refresh this page!");
     randomIndex = Math.floor(Math.random() * 9000);
 
     $('#send').prop('disabled', true);
