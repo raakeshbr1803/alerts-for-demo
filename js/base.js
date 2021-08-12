@@ -49,6 +49,11 @@ function generateAlertPayload(data){
     "description": data[7],
     "metric_name": data[1],
     "metric_value": data[2],
+    "additional_info": {
+      "custom_attribute1": String(Math.floor(Math.random() * 1000000)),
+      "custom_attribute2": occurenceTime.toISOString(),
+      "custom_attribute3": "1"
+    },
     "occurrence_time": occurenceTime.toISOString()
   }
   return payload;
