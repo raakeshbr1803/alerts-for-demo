@@ -22,28 +22,30 @@
 		<div class="form-v4-content">
 			<div class="form-left">
 				<h2>How to use this service?</h2>
-        <p>1. Go to Freshservice -> Admin -> Alert Profiles</p>
-        <p>2. Create an Alert Profile and Custom Integration with the help of this <a href="https://support.freshservice.com/support/solutions/articles/50000002707-track-and-manage-alerts-using-alert-profiles" target="_blank" class="sol-article">solution article</a></p>
-        <p>3. In the Custom Integration created, copy the <i><b>Endpoint URL</b></i> and <i><b>Auth header</b></i> under <i><b>Authorize Integration</b></i> section</p>
-        <p>4. Paste the copied information to this form and <i><b>Send Alerts</b></i></p>
-        <p>5. This will take 2-3 minutes to create alerts in the demo account</p>
-        <p>6. Number of alerts being generated will be around 150-200 along with some alerts events</p>
+        <p>1. Go to Freshservice -> Admin -> Alert Profiles.</p>
+        <p>2. Create an Alert Profile and Custom Integration with the help of this <a href="https://support.freshservice.com/support/solutions/articles/50000002707-track-and-manage-alerts-using-alert-profiles" target="_blank" class="sol-article">solution article</a>.</p>
+        <p>3. In the Custom Integration created, copy the <i><b>Endpoint URL</b></i> and <i><b>Auth header</b></i> under <i><b>Authorize Integration</b></i> section.</p>
+        <p>4. Paste the copied information to this form and <i><b>Send Alerts</b></i>.</p>
+        <p>5. This will take 2-3 minutes to create alerts in the demo account.</p>
+        <p>6. This will generate 100-120 alerts along with some alert events.</p>
+				<p>7. In case alerts are not created in the demo instance or for any queries contact the <a target="_blank" class="sol-article" href="https://fwbuzz.slack.com/team/UUHJ8TY4W">developer</a>.</p>
 			</div>
 			<form class="form-detail" action="#" method="post" id="alert-form">
 
 				<h2>Alerts for Demo Account</h2>
 				<div class="fieldset">
         	<label for="hostname">Endpoint URL</label>
-        	<input type="text" id="endpoint" name="endpoint" autocomplete="on" class="input-text" />
+        	<input type="text" id="endpoint" name="endpoint" autocomplete="on" placeholder="https://demo.alerts.freshservice.com/alert_profiles/1/integrations/1/alerts" class="input-text" />
       	</div>
       	<div class="fieldset">
         	<label for="resource">Auth Header</label>
-        	<input type="text" id="auth" name="auth"autocomplete="off" class="input-text auth-header" />
+        	<input type="text" id="auth" name="auth"autocomplete="off" placeholder="auth-key eyJhbGciOiJIUzI1NiJ9.eyJhX2lkIjoxNDIzLCJhcF9pZCI6NTE5OSwic19pZCI6MjIsInI0NTJ9.2xKQsHDoUms3nzeFap-7mYIkYDAcvc_xZfcy36s05Oc" class="input-text auth-header" />
       	</div>
 				
 				<div class="form-row-last">
 					<input type="submit" name="register" class="register" id="send" value="Send Alerts">
 				</div>
+				<div id="status" class="regular"></div>
 			</form>
 		</div>
 	</div>

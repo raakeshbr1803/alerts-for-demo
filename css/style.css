@@ -117,7 +117,7 @@ body {
 .form-v4-content .form-detail input {
   width: 100%;
   padding: 11.5px 15px;
-  border: 1px solid #e5e5e5;
+  border: 1px solid #9e9c9c;
   border-top-left-radius: 5px;
   border-bottom-right-radius: 5px;
   appearance: unset;
@@ -140,6 +140,10 @@ body {
   -ms-box-sizing: border-box;
 }
 
+.form-v4-content .form-detail input::placeholder {
+  color: rgb(180, 178, 178);
+}
+
 .form-v4-content .form-detail input:focus {
   border: 2px solid #2c5cc5;
 }
@@ -150,15 +154,27 @@ body {
   border-bottom-right-radius: 5px;
   width: 130px;
   border: none;
-  margin: 6px 0 50px 0px;
+  margin: 6px 0 25px 0px;
   cursor: pointer;
   color: #fff;
   font-weight: 700;
   font-size: 15px;
 }
+
+.form-v4-content .form-detail .register:disabled {
+  color: #666666;
+  background-color: #cccccc;
+}
+
 .form-v4-content .form-detail .register:hover {
   background: #2f73a3;
 }
+
+.form-v4-content .form-detail .register:disabled:hover {
+  color: #666666;
+  background-color: #cccccc;
+}
+
 .form-v4-content .form-detail input {
   padding: 12.5px;
 }
@@ -172,6 +188,30 @@ body {
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+.regular {
+  color: black;
+  font-family: sans-serif;
+  font-size: 15px;
+}
+
+.status-error {
+  font-size: 17px;
+  font-family: sans-serif;
+  color: rgb(241, 116, 116);
+}
+
+.status-wait {
+  font-size: 17px;
+  font-family: sans-serif;
+  color: #3786bd;
+}
+
+.status-complete {
+  font-size: 17px;
+  font-family: sans-serif;
+  color: rgb(241, 116, 116);
 }
 
 /* Responsive */

@@ -1,11 +1,13 @@
+var occurenceTime = new Date();
+
 $(document).ready(function () {
   $.ajax({
     url: "./images/custom-int-noc.csv",
     async: true,
     success: function (csvd) {
+      //parsing the data on page load
       $.getScript("https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.8.3/jquery.csv.min.js",function(){
         csvData = $.csv.toArrays(csvd);
-        console.log(csvData);
         localStorage.setItem("data",JSON.stringify(csvData));
       });
     },
@@ -27,12 +29,11 @@ async function postData(url, data) {
     body: JSON.stringify(data)
   }
   let response = await fetch(url, options);
-  console.log(response);
 }
 
 function generateAlertPayload(data){
   var severity = ["critical","error","warning","ok"]
-  date_iso = new Date().toISOString();
+  occurenceTime.setMinutes(occurenceTime.getMinutes() + 2);
 
   payload = {
     "node": data[3],
@@ -49,22 +50,42 @@ function generateAlertPayload(data){
     "description": data[7],
     "metric_name": data[1],
     "metric_value": data[2],
-    "occurrence_time": date_iso
+    "occurrence_time": occurenceTime.toISOString()
   }
   return payload;
 }
 
-function pushAlerts() {
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function pushAlerts() {
     var integration = Array.from(document.querySelectorAll("#alert-form input")).reduce((auth, input) => ({ ...auth,
       [input.id]: input.value}), {});
+    if (integration.endpoint === '' || integration.auth === '')
+      return;
+
+    //fetching the data from parsed csv
     data_local = JSON.parse(localStorage.getItem("data")) || data_local;
     var authkey = integration.auth.split("auth-key ")[1];
     if (typeof authkey === 'undefined')
     {
-      console.log("Invalid Auth key");
+      $('#status').removeClass().addClass("status-error").text("Invalid Auth Header format");
       return;
     }
+
     var url = integration.endpoint+"?auth-key="+authkey;
-    console.log(url);
-    postData(url,generateAlertPayload(data_local[990]));
+    $('#status').removeClass().addClass("status-wait").text("Please wait.. This might take 2-3 minutes. Don't close the tab!");
+    randomIndex = Math.floor(Math.random() * 9000);
+
+    $('#send').prop('disabled', true);
+
+    for (let i = 0; i < 200; i++) {
+      await postData(url,generateAlertPayload(data_local[randomIndex]));
+      randomIndex++; 
+    }
+    $('#send').prop('disabled', false);
+    $('#status').removeClass().addClass("status-wait").text("Alerts are created successfully, kindly check your demo instance.");
+    document.getElementById("status").innerHTML += 
+              "<p>In the case of alerts not being populated in the demo instance, check for the correctness of the data you have provided or contact the developer.</p>";
 }
