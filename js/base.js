@@ -1,5 +1,3 @@
-var occurenceTime = new Date();
-
 $(document).ready(function () {
   $.ajax({
     url: "./images/custom-int-noc.csv",
@@ -33,7 +31,8 @@ async function postData(url, data) {
 
 function generateAlertPayload(data){
   var severity = ["critical","error","warning","ok"]
-  occurenceTime.setMinutes(occurenceTime.getMinutes() + 2);
+  var occurenceTime = new Date();
+  // occurenceTime.setMinutes(occurenceTime.getMinutes() + 2);
 
   payload = {
     "node": data[3],
