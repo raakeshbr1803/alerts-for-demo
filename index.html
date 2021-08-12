@@ -10,9 +10,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.8.3/jquery.csv.min.js"></script>
   <script src="js/base.js"></script>
   
-  
-	Font
-	<link rel="stylesheet" type="text/css" href="css/opensans-font.css">
 	<!-- Main Style Css -->
   <link rel="stylesheet" href="css/style.css"/>
   <link rel="icon" href="./images/favicon.ico" type="image/x-icon">
@@ -20,10 +17,11 @@
 
 
 <body class="form-v4">
+	<div><img class="fs-logo" src="./images/logo.png" alt="Girl in a jacket" width="200" height="60"></div>
 	<div class="page-content">
 		<div class="form-v4-content">
 			<div class="form-left">
-				<h3>How to use this service?</h3>
+				<h2>How to use this service?</h2>
         <p>1. Go to Freshservice -> Admin -> Alert Profiles</p>
         <p>2. Create an Alert Profile and Custom Integration with the help of this <a href="https://support.freshservice.com/support/solutions/articles/50000002707-track-and-manage-alerts-using-alert-profiles" target="_blank" class="sol-article">solution article</a></p>
         <p>3. In the Custom Integration created, copy the <i><b>Endpoint URL</b></i> and <i><b>Auth header</b></i> under <i><b>Authorize Integration</b></i> section</p>
@@ -40,7 +38,7 @@
       	</div>
       	<div class="fieldset">
         	<label for="resource">Auth Header</label>
-        	<input type="text" id="auth" name="auth"autocomplete="on" class="input-text auth-header" />
+        	<input type="text" id="auth" name="auth"autocomplete="off" class="input-text auth-header" />
       	</div>
 				
 				<div class="form-row-last">

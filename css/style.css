@@ -2,12 +2,12 @@ body {
   color: #a7d1ef;
   line-height: 1.5;
   margin: 0;
-  background: #a7d1ef;
+  background: #ebeff3;
 }
 .page-content {
   width: 100%;
   margin: 0 auto;
-  background: #a7d1ef;
+  background: #ebeff3;
   display: flex;
   display: -webkit-flex;
   justify-content: center;
@@ -34,11 +34,11 @@ body {
   -ms-box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
   -moz-box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
   -webkit-box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
-  margin: 175px 0;
+  margin: 100px 0;
   position: relative;
   display: flex;
   display: -webkit-flex;
-  font-family: "Open Sans", sans-serif;
+  font-family: sans-serif;
 }
 .form-v4-content h2 {
   font-weight: 700;
@@ -56,7 +56,7 @@ body {
   color: #fff;
 }
 .form-v4-content .form-left p {
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 300;
   line-height: 1.5;
 }
@@ -67,9 +67,6 @@ body {
   margin: 20px 0 25px;
 }
 
-.form-v4-content .form-left .account:hover {
-  background: #e5e5e5;
-}
 .form-v4-content .form-left .form-left-last input {
   padding: 15px;
 }
@@ -101,39 +98,7 @@ body {
   display: block;
   margin-bottom: 8px;
 }
-.form-v4-content .form-detail .form-row label#valid {
-  position: absolute;
-  right: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  -o-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -webkit-border-radius: 50%;
-  background: #53c83c;
-}
-.form-v4-content .form-detail .form-row label#valid::after {
-  content: "";
-  position: absolute;
-  left: 5px;
-  top: 1px;
-  width: 3px;
-  height: 8px;
-  border: 1px solid #fff;
-  border-width: 0 2px 2px 0;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  -o-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
+
 .form-v4-content .form-detail label.error {
   padding-left: 0;
   margin-left: 0;
@@ -142,7 +107,7 @@ body {
   bottom: 10px;
   width: 100%;
   background: none;
-  color: red;
+  color: rgb(241, 116, 116);
 }
 
 .form-v4-content .form-detail .input-text {
@@ -165,7 +130,7 @@ body {
   -webkit-outline: none;
   -o-outline: none;
   -ms-outline: none;
-  font-family: "Open Sans", sans-serif;
+  font-family: sans-serif;
   font-size: 15px;
   color: #333;
   box-sizing: border-box;
@@ -175,56 +140,10 @@ body {
   -ms-box-sizing: border-box;
 }
 
-.form-v4-content .form-detail .form-row input:focus {
-  border: 1px solid #53c83c;
+.form-v4-content .form-detail input:focus {
+  border: 2px solid #2c5cc5;
 }
-.form-v4-content .form-detail .form-checkbox {
-  margin-top: 1px;
-  position: relative;
-}
-.form-v4-content .form-detail .form-checkbox input {
-  position: absolute;
-  opacity: 0;
-}
-.form-v4-content .form-detail .form-checkbox .checkmark {
-  position: absolute;
-  top: 13px;
-  left: 0;
-  height: 15px;
-  width: 15px;
-  border: 1px solid #ccc;
-  cursor: pointer;
-}
-.form-v4-content .form-detail .form-checkbox .checkmark::after {
-  content: "";
-  position: absolute;
-  left: 5px;
-  top: 1px;
-  width: 3px;
-  height: 8px;
-  border: 1px solid #3786bd;
-  border-width: 0 2px 2px 0;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  -o-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-  transform: rotate(45deg);
-  display: none;
-}
-.form-v4-content .form-detail .form-checkbox input:checked ~ .checkmark::after {
-  display: block;
-}
-.form-v4-content .form-detail .form-checkbox p {
-  margin-left: 34px;
-  color: #333;
-  font-size: 14px;
-  font-weight: 600;
-}
-.form-v4-content .form-detail .form-checkbox .text {
-  font-weight: 700;
-  color: #3786bd;
-  text-decoration: underline;
-}
+
 .form-v4-content .form-detail .register {
   background: #3786bd;
   border-top-left-radius: 5px;
@@ -240,13 +159,19 @@ body {
 .form-v4-content .form-detail .register:hover {
   background: #2f73a3;
 }
-.form-v4-content .form-detail .form-row-last input {
+.form-v4-content .form-detail input {
   padding: 12.5px;
 }
 
 .sol-article {
   text-decoration: none;
   color: greenyellow;
+}
+
+.fs-logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Responsive */

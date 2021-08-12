@@ -16,6 +16,20 @@ $(document).ready(function () {
   $("#send").click(pushAlerts);
 });
 
+async function postData(url, data) {
+  options = {
+    method: 'POST',
+    mode: 'no-cors',
+    cache: 'no-cache',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data)
+  }
+  let response = await fetch(url, options);
+  console.log(response);
+}
+
 function generateAlertPayload(data){
   var severity = ["critical","error","warning","ok"]
   date_iso = new Date().toISOString();
@@ -35,38 +49,22 @@ function generateAlertPayload(data){
     "description": data[7],
     "metric_name": data[1],
     "metric_value": data[2],
-    "occurrence_time": "2020-07-03T19:14:07+05:30"
+    "occurrence_time": date_iso
   }
-  console.log(payload)
-  return JSON.stringify(payload);;
-}
-
-function makeRequest(int, data) {
-  if(int.endpoint==="" || int.auth===""){
-    return;
-  }
-  var options = {
-    "async": true,
-    "crossDomain": true,
-    "cors": true,
-    "url": int.endpoint,
-    "method": "POST",
-    "headers": {
-      "Authorization": int.auth,
-      "Content-Type": "application/json",
-      "cache-control": "no-cache",
-
-    },
-    "processData": false,
-    "data": generateAlertPayload(data)
-  }
-  console.log(options);
-  $.ajax(options);
+  return payload;
 }
 
 function pushAlerts() {
     var integration = Array.from(document.querySelectorAll("#alert-form input")).reduce((auth, input) => ({ ...auth,
       [input.id]: input.value}), {});
     data_local = JSON.parse(localStorage.getItem("data")) || data_local;
-    makeRequest(integration,data_local[1]);
+    var authkey = integration.auth.split("auth-key ")[1];
+    if (typeof authkey === 'undefined')
+    {
+      console.log("Invalid Auth key");
+      return;
+    }
+    var url = integration.endpoint+"?auth-key="+authkey;
+    console.log(url);
+    postData(url,generateAlertPayload(data_local[990]));
 }
